@@ -54,11 +54,9 @@ export class News extends Component {
     this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${
       this.props.country
-    }&category=${
-      this.props.category
-    }&apiKey=1ab7f386fe074026ab3be5483db500cf&page=${
-      this.state.page - 1
-    }&pageSize=20`;
+    }&category=${this.props.category}&apiKey=${
+      process.env.REACT_APP_API_KEY
+    }&page=${this.state.page - 1}&pageSize=20`;
     this.setState({
       loading: true,
     });
@@ -80,11 +78,9 @@ export class News extends Component {
     } else {
       const url = `https://newsapi.org/v2/top-headlines?country=${
         this.props.country
-      }&category=${
-        this.props.category
-      }&apiKey=1ab7f386fe074026ab3be5483db500cf&page=${
-        this.state.page + 1
-      }&pageSize=20`;
+      }&category=${this.props.category}&apiKey=${
+        process.env.REACT_APP_API_KEY
+      }&page=${this.state.page + 1}&pageSize=20`;
       this.setState({
         loading: true,
       });
